@@ -19,4 +19,4 @@ app.use("/api/auth", authroute);
 
 
 
-module.exports = { app };
+module.exports = app;

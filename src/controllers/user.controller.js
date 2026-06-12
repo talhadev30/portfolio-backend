@@ -24,23 +24,22 @@ async function registerUser(req, res) {
     }
 }
 
-
-async function getallUser(req , res) {
-    
+async function getallUser(req, res) {
     try {
         const user = await userModel.find();
 
-        res.status(201).json({
+        res.status(200).json({
             message: "User fetched successfully",
             user,
         });
     } catch (error) {
+        console.error("Error fetching users:", error);
+
         res.status(500).json({
             message: "User fetched not successfully",
+            error: error.message,
         });
     }
-    
-
 }
 
 module.exports = { registerUser  , getallUser };
